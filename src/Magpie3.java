@@ -47,7 +47,7 @@ public class Magpie3 {
 		} else if (findKeyword(statement, "hate") >= 0) {
 			response = "Hate is a strong word...";
 		} else if (findKeyword(statement, "vikings") >= 0) {
-			response = "You're a vikings fan? That's rough.";
+			response = "You're a vikings fan? That is rough.";
 		} else {
 			response = getRandomResponse();
 		}
