@@ -27,7 +27,8 @@ public class Magpie3 {
 	 */
 	public String getResponse(String statement) {
 		String response = "";
-		if (statement.length() == 0) {
+		String statementTrim = statement.trim();
+		if (statementTrim.length() < 1) {
 			response = "Say something, please.";
 		} else if (findKeyword(statement, "no") >= 0) {
 			response = "Why so negative?";
@@ -36,6 +37,17 @@ public class Magpie3 {
 				|| findKeyword(statement, "sister") >= 0
 				|| findKeyword(statement, "brother") >= 0) {
 			response = "Tell me more about your family.";
+		} else if (findKeyword(statement, "cat") >= 0
+				|| findKeyword(statement, "dog") >= 0) {
+			response = "Tell me more about your pets.";
+		} else if (findKeyword(statement, "Padjen") >= 0) {
+			response = getTeacherResponse();
+		} else if (findKeyword(statement, "pizza") >= 0) {
+			response = "I like pizza too!";
+		} else if (findKeyword(statement, "hate") >= 0) {
+			response = "Hate is a strong word...";
+		} else if (findKeyword(statement, "vikings") >= 0) {
+			response = "You're a vikings fan? That's rough.";
 		} else {
 			response = getRandomResponse();
 		}
@@ -121,7 +133,7 @@ public class Magpie3 {
 	 * @return a non-committal string
 	 */
 	private String getRandomResponse() {
-		final int NUMBER_OF_RESPONSES = 4;
+		final int NUMBER_OF_RESPONSES = 6;
 		double r = Math.random();
 		int whichResponse = (int) (r * NUMBER_OF_RESPONSES);
 		String response = "";
@@ -134,6 +146,29 @@ public class Magpie3 {
 			response = "Do you really think so?";
 		} else if (whichResponse == 3) {
 			response = "You don't say.";
+		} else if (whichResponse == 4) {
+			response = "That's pretty cool.";
+		} else if (whichResponse == 5) {
+			response = "Nice.";	
+		}
+
+		return response;
+	}
+
+	private String getTeacherResponse() {
+		final int NUMBER_OF_RESPONSES = 4;
+		double r = Math.random();
+		int whichResponse = (int) (r * NUMBER_OF_RESPONSES);
+		String response = "";
+
+		if (whichResponse == 0) {
+			response = "Yeah, he's a pretty cool teacher.";
+		} else if (whichResponse == 1) {
+			response = "Tell me more about him!";
+		} else if (whichResponse == 2) {
+			response = "What does he teach?";
+		} else if (whichResponse == 3) {
+			response = "He's okay, I guess.";
 		}
 
 		return response;

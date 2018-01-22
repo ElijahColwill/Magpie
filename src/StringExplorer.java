@@ -8,9 +8,14 @@ public class StringExplorer {
 
 	public static void main(String[] args) {
 		String sample = "The quick brown fox jumped over the lazy dog.";
+		int notFoundPsn = sample.indexOf("slow");
+		System.out.println("sample.indexOf(\"slow\") = " + notFoundPsn);
+
+		int notFoundPsn2 = sample.indexOf("slow", 1);
+		System.out.println(notFoundPsn2);
 
 		// Demonstrate the indexOf method.
-		int position = sample.indexOf("quick");
+		int position = sample.indexOf("quick", 1);
 		System.out.println("sample.indexOf(\"quick\") = " + position);
 
 		// Demonstrate the toLowerCase method.
